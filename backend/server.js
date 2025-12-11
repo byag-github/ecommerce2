@@ -16,6 +16,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+//  CORS DI SINI
+app.use(
+	cors({
+		origin: ["http://localhost:5173", "https://ecommerce2-front-xi.vercel.app"], // Frontend URL
+		credentials: true,
+	})
+);
+
 // allows you to parse the body of the request
 app.use(express.json({ limit: "5mb" }));
 app.use(cookieParser());
